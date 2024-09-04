@@ -8,7 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_community.tools import DuckDuckGoSearchResults
-
+from utils.llms import llm1, llm2, llm3, llm4, llm5, llm6
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -20,34 +20,11 @@ def get_api_keys():
 
 
 # Function to execute the pipeline
-# Function to execute the pipeline
 def run_pipeline(theme, st_callback):
     start_time = time.time()
     logger.info("Iniciando o processamento da rota /book/generate/")
 
-    groq_api_key = "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"
-
-    if not groq_api_key:
-        logger.error("Groq API key está ausente")
-        raise Exception("Groq API key is missing")
-
-    llm1 = ChatGroq(
-        temperature=0.5,
-        model="llama3-70b-8192",
-        api_key=groq_api_key,
-    )
-
-    llm2 = ChatGroq(
-        temperature=0.5,
-        model="gemma2-9b-it",
-        api_key=groq_api_key,
-    )
-
-    llm3 = ChatGroq(
-        temperature=0.5,
-        model="llama3-8b-8192",
-        api_key=groq_api_key,
-    )
+    
 
     # New prompt templates
     theme_selection_prompt_template = """
