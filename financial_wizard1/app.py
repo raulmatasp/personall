@@ -7,43 +7,16 @@ from langchain_groq import ChatGroq
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
 from langchain_community.tools import DuckDuckGoSearchRun, DuckDuckGoSearchResults
+from utils.llms import llm1, llm2, llm3, llm4, llm5, llm6
 
 # Initialize logger
 logger = logging.getLogger(__name__)
 
-# Function to get API keys
-def get_api_keys():
-    return {"groq_api_key": "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"}
 
 # Function to execute the pipeline
 def run_pipeline(theme):
     start_time = time.time()
     logger.info("Iniciando o processamento da rota /podcast/generate/")
-
-    api_keys = get_api_keys()
-    groq_api_key = api_keys["groq_api_key"]
-
-    if not groq_api_key:
-        logger.error("Groq API key está ausente")
-        raise Exception("Groq API key is missing")
-
-    llm1 = ChatGroq(
-        temperature=0.5,
-        model="llama3-70b-8192",
-        api_key=groq_api_key,
-    )
-
-    llm2 = ChatGroq(
-        temperature=0.5,
-        model="gemma2-9b-it",
-        api_key=groq_api_key,
-    )
-
-    llm3 = ChatGroq(
-        temperature=0.5,
-        model="llama3-groq-8b-8192-tool-use-preview",
-        api_key=groq_api_key,
-    )
 
     # Define all prompts based on the content generation process
     planning_prompt_template = """Provide a detailed overview about the theme: {theme}. Consider the main aspects, 

@@ -5,6 +5,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.tools import DuckDuckGoSearchRun
+from utils.llms import llm1, llm2, llm3, llm4, llm5, llm6
 
 logger = logging.getLogger(__name__)
 
@@ -13,9 +14,6 @@ logger = logging.getLogger(__name__)
 #TODO: output the doc file on word format
 #TODO: Input Management for active lawsuits
 
-
-def get_api_keys():
-    return {"groq_api_key": "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"}
 
 
 # Define Prompt Templates
