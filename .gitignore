@@ -1,0 +1,12 @@
+hugai/
+venv/
+.DS_Store
+__pycache__/
+**/__pycache__/
+.idea/
+.vscode/settings.json
+.env
+
+node_modules/
+data/processed
+.code-workspace
