@@ -172,11 +172,31 @@ def nova_acao_judicial():
 def acao_judicial_existente():
     st.title("Seção de Ação Judicial Existente")
     st.subheader("Área dos Advogados")
-    advogados = ["Advogado A", "Advogado B", "Advogado C"]
-    advogado_selecionado = st.selectbox("Selecione o Advogado", advogados)
+    areas_advogados = [
+        "Direito Civil", 
+        "Direito Imobiliário", 
+        "Direito Trabalhista", 
+        "Direito Familiar", 
+        "Direito Criminal", 
+        "Direito Administrativo",
+        "Direito Tributário",
+        "Direito Internacional",
+        "Direito Processual Civil",
+        "Direito Processual Criminal",
+        "Direito Processual Administrativo",
+        "Direito Processual Tributário",
+        "Direito Processual Internacional",
+        ]
+    area_atuacao = st.selectbox("Selecione a área de atuação do advogado", areas_advogados)
 
-    st.subheader("Em Qual Fase Está")
-    fases = ["Inicial", "Descoberta", "Julgamento", "Apelação"]
+    st.subheader("Quem Está Sendo Defendido")
+    cliente = st.text_input("Informe quem está sendo defendido")
+
+    st.subheader("Expectativa da Petição")
+    expectativa = st.text_area("Descreva o que você espera que a AILawyer produza nesta petição")
+
+    st.subheader("Em Qual Fase a Petição está sendo redigida")
+    fases = ["Inicial", "Conhecimento", "Provas", "Apelação", "Recurso Especial", "Recurso Extraordinário"]
     fase_selecionada = st.radio("Selecione a fase", fases)
 
     st.subheader("Qual é o Seu Objetivo")
